@@ -2,6 +2,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import { document } from 'react-dom';
 
 const GlowCard = ({ children , identifier}) => {
   useEffect(() => {
