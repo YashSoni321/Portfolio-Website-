@@ -15,7 +15,7 @@ function Footer() {
             © Developer Portfolio by{" "}
             <Link
               target="_blank"
-              href="https://www.linkedin.com/in/abu-said-bd/"
+              href="https://www.linkedin.com/in/yashsonii/"
               className="text-[#16f2b3]"
             >
               Yash Soni
