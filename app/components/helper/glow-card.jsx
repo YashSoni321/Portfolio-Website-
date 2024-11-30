@@ -1,16 +1,18 @@
-"use client"
-import React from 'react';
-import { useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
-import { document } from 'react-dom';
+"use client";
+import React, { useEffect } from 'react';
 
-const GlowCard = ({ children , identifier}) => {
+const GlowCard = ({ children, identifier }) => {
   useEffect(() => {
+    // Ensure this code runs only in the browser
     if (typeof document !== 'undefined') {
-
       const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
       const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
-  
+
+      if (!CONTAINER || !CARDS) {
+        console.warn('Glow container or cards not found!');
+        return;
+      }
+
       const CONFIG = {
         proximity: 40,
         spread: 80,
@@ -19,11 +21,11 @@ const GlowCard = ({ children , identifier}) => {
         vertical: false,
         opacity: 0,
       };
-  
+
       const UPDATE = (event) => {
         for (const CARD of CARDS) {
           const CARD_BOUNDS = CARD.getBoundingClientRect();
-  
+
           if (
             event?.x > CARD_BOUNDS.left - CONFIG.proximity &&
             event?.x < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
@@ -34,25 +36,23 @@ const GlowCard = ({ children , identifier}) => {
           } else {
             CARD.style.setProperty('--active', CONFIG.opacity);
           }
-  
+
           const CARD_CENTER = [
             CARD_BOUNDS.left + CARD_BOUNDS.width * 0.5,
             CARD_BOUNDS.top + CARD_BOUNDS.height * 0.5,
           ];
-  
+
           let ANGLE =
             (Math.atan2(event?.y - CARD_CENTER[1], event?.x - CARD_CENTER[0]) *
               180) /
             Math.PI;
-  
+
           ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
-  
+
           CARD.style.setProperty('--start', ANGLE + 90);
         }
       };
-  
-      document.body.addEventListener('pointermove', UPDATE);
-  
+
       const RESTYLE = () => {
         CONTAINER.style.setProperty('--gap', CONFIG.gap);
         CONTAINER.style.setProperty('--blur', CONFIG.blur);
@@ -62,19 +62,17 @@ const GlowCard = ({ children , identifier}) => {
           CONFIG.vertical ? 'column' : 'row'
         );
       };
-  
+
+      document.body.addEventListener('pointermove', UPDATE);
+
       RESTYLE();
       UPDATE();
-    }
 
-    // Cleanup event listener
-    return () => {
-      if (typeof document !== 'undefined') {
-        // This code will only run in the browser
+      // Cleanup function
+      return () => {
         document.body.removeEventListener('pointermove', UPDATE);
-      
-      }
-    };
+      };
+    }
   }, [identifier]);
 
   return (
