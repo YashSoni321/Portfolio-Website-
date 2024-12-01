@@ -2,7 +2,7 @@
 
 export const contactsData = {
     name: "Yash Soni",
-    profile: "/profile-pic (6).png",
+    profile: "/profile_pic.jpg",
     designation: "Software Engineer",
     description:
       `Experienced Full Stack Developer with 3 years specializing in MERN
