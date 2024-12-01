@@ -20,5 +20,5 @@ export const contactsData = {
     leetcode: "https://leetcode.com/yashsonii/",
     devUsername: "yashsonii",
     resume:
-      "https://drive.google.com/file/d/1oSQ5xzQjhGS-A07eNS4fhWa0M-jDPsyV/view?usp=sharing",
+      "https://drive.google.com/file/d/1ICeLTgXLJOp91jmTrsox6t0zJ8lpSFnt/view?usp=sharing",
   };
