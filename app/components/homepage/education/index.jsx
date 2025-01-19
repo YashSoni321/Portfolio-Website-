@@ -4,8 +4,14 @@ import Image from "next/image";
 import { educations } from "@/utils/data/educations";
 import { BsPersonWorkspace } from "react-icons/bs";
 import AnimationLottie from "../../helper/animation-lottie";
-import GlowCard from "../../helper/glow-card";
+// import GlowCard from "../../helper/glow-card";
+import dynamic from "next/dynamic";
 import lottieFile from '/public/lottie/study.json';
+
+const GlowCard = dynamic(() => import("../../helper/glow-card"), {
+  ssr: false, // Disable SSR for this component
+});
+
 
 function Education() {
   return (
