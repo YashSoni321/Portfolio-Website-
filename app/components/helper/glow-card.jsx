@@ -70,6 +70,7 @@ const GlowCard = ({ children, identifier }) => {
 
       // Cleanup function
       return () => {
+        if (typeof window !== 'undefined' && typeof document !== 'undefined')
         document.body.removeEventListener('pointermove', UPDATE);
       };
     }
