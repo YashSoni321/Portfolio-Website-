@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Yash Soni",
-  profile: "/profile-pic (6).png",
+  profile: "/profile_pic.jpg",
   designation: "Software Engineer",
   description:
     `Experienced Full Stack Developer with 3 years specializing in MERN
@@ -18,5 +18,5 @@ innovation across web and mobile application projects.`,
   leetcode: "https://leetcode.com/yashsonii/",
   devUsername: "yashsonii",
   resume:
-    "https://drive.google.com/file/d/1oSQ5xzQjhGS-A07eNS4fhWa0M-jDPsyV/view?usp=sharing",
+    "https://drive.google.com/file/d/1ICeLTgXLJOp91jmTrsox6t0zJ8lpSFnt/view?usp=sharing",
 };
