@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 const GlowCard = ({ children, identifier }) => {
   useEffect(() => {
     // Ensure this code runs only in the browser
-    if (typeof document !== 'undefined') {
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
       const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
 
