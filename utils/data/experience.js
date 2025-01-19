@@ -1,9 +1,9 @@
 export const experiences = [
   {
     id: 1,
-    title: "Full Stack Developer",
+    title: "Full Stack Engineer",
     company: "Grape Technology | Remote, Dubai",
-    duration: "10/2022 - Present",
+    duration: " 10/2022 - 12/2024",
   },
   {
     id: 2,
