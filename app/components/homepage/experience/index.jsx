@@ -1,10 +1,13 @@
 // @flow strict
-
+"use client"
 import { experiences } from "@/utils/data/experience";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
+import dynamic from "next/dynamic";
 import AnimationLottie from "../../helper/animation-lottie";
-import GlowCard from "../../helper/glow-card";
+const GlowCard = dynamic(() => import("../../helper/glow-card"), {
+  ssr: false, // Disable SSR for this component
+});
 import experience from '/public/lottie/code.json';
 
 function Experience() {
