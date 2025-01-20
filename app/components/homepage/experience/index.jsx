@@ -3,11 +3,9 @@
 import { experiences } from "@/utils/data/experience";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
-import dynamic from "next/dynamic";
+import GlowCard from "../../helper/glow-card"
 import AnimationLottie from "../../helper/animation-lottie";
-const GlowCard = dynamic(() => import("../../helper/glow-card"), {
-  ssr: false, // Disable SSR for this component
-});
+
 import experience from '/public/lottie/code.json';
 
 function Experience() {
