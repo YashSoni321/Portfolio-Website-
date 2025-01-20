@@ -27,21 +27,7 @@ function ContactWithCaptcha() {
   };
 
   const handleSendMail = async (e) => {
-    if (!captcha) {
-      toast.error('Please complete the captcha!');
-      return;
-    } else {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_APP_URL}/api/google`, {
-        token: captcha
-      });
-
-      setCaptcha(null);
-      if (!res.data.success) {
-        toast.error('Captcha verification failed!');
-        return;
-      };
-    };
-
+   
     e.preventDefault();
     if (!input.email || !input.message || !input.name) {
       setError({ ...error, required: true });
@@ -52,9 +38,10 @@ function ContactWithCaptcha() {
       setError({ ...error, required: false });
     };
 
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
+    const serviceID = "service_u33t8lv";
+
+    const templateID = "template_sf3n70o";
+    const options = { publicKey: "lKanpvT8LVEHrs2x5" };
 
     try {
       const res = await emailjs.send(serviceID, templateID, input, options);
