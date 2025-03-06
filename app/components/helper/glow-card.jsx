@@ -1,8 +1,16 @@
 "use client";
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
 
 const GlowCard = ({ children, identifier }) => {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    // Set client-side flag
+    setIsClient(true);
+  }, []);
+  useEffect(() => {
+    if (!isClient) return;
+    
     // Ensure this code runs only in the browser
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
@@ -74,7 +82,7 @@ const GlowCard = ({ children, identifier }) => {
         document.body.removeEventListener('pointermove', UPDATE);
       };
     }
-  }, [identifier]);
+  }, [identifier , isClient]);
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
