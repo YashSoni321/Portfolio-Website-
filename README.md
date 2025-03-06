@@ -7,8 +7,8 @@
 
 # Demo :movie_camera:
 
-![](./public/image/screen.png)
+![](./public/image/screen1.png)
 
-## View live preview [here](https://yashinfo.live//).
+## View live preview [here](https://techieyash.com/).
 
 ---
