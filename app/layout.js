@@ -82,6 +82,33 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://techieyash.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="author" content="Yash Soni" />
+        <meta name="robots" content="index, follow" />
+        <meta
+          name="google-site-verification"
+          content="your-verification-code"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Yash Soni",
+              jobTitle: "Full Stack Developer",
+              url: "https://techieyash.com",
+              sameAs: [
+                "https://github.com/YashSoni321",
+                "https://www.linkedin.com/in/yashsonii/",
+              ],
+            }),
+          }}
+        ></script>
+      </head>
       <body className={inter.className}>
         <ToastContainer />
         <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
